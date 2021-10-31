@@ -25,7 +25,7 @@ grep '48' oldboy.txt #包含48的所有行
    grep -n '^$' test.txt
   ```
 
-  ![image-20211004110809223](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211004110809223.png)
+  ![image](https://user-images.githubusercontent.com/18898570/139565648-65eba5d7-96fe-41e7-afba-17e9af38c717.png)
 
 - 企业应用案例
 
@@ -41,7 +41,7 @@ grep '48' oldboy.txt #包含48的所有行
 grep '.' text.txt
 ```
 
-![image-20211004111336562](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211004111336562.png)
+![image](https://user-images.githubusercontent.com/18898570/139565691-65f39d6d-8b73-48a6-b050-50481bb8a084.png)
 
 ###### 5) \ 转义字符 
 
@@ -63,7 +63,7 @@ grep '\.$' test.txt
 grep '^.*t' test.txt # 以t开头的字符
 ```
 
-![image-20211004114909051](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211004114909051.png)
+![image](https://user-images.githubusercontent.com/18898570/139565697-48f6c982-8d50-4913-9630-a2efc211aac4.png)
 
 ###### 8）[] [abc] 1次匹配一个字符，匹配任何一个字符（a或b或c）
 
@@ -89,7 +89,7 @@ grep '[abc]' test.txt
 grep -o '[abc]' test.txt #把匹配过程打印出来
 ```
 
-![image-20211005102944659](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211005102944659.png)
+![image](https://user-images.githubusercontent.com/18898570/139565703-3bb7fc42-749c-4f98-b289-82f3ec79451e.png)
 
 注意：[a-z|A-Z|0-9] 匹配的是大小写字母、数字和|
 
@@ -138,7 +138,7 @@ egrep '[a-Z]+' test.txt
   egrep 'oldb(o|e)y' test.txt
   ```
 
-  ![image-20211005111037807](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211005111037807.png)
+ ![image](https://user-images.githubusercontent.com/18898570/139565709-4016ef01-2970-45ba-8e95-790c921ebfef.png)
 
 - 后向引用，用于sed命令
 
@@ -157,8 +157,7 @@ o{,m} 前一个字母最多出现m次
 ```sh
 egrep 'go?d' test.txt
 ```
-
-![image-20211005111712349](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211005111712349.png)
+![image](https://user-images.githubusercontent.com/18898570/139565720-85533683-a88b-4831-b863-19ce6db864ca.png)
 
 #### 文件处理三剑客
 
@@ -251,16 +250,16 @@ egrep 'go?d' test.txt
   | i    | insert，向指定的行或每一行插入内容(行前面)     |
 
   ```sh
-  sed '3a lisi996' test.txt #在第三行的后面加上内容
+  sed '3a lisi996' test.txt #在第三行的后一行加上内容
   ```
 
-  ![image-20211005212418581](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211005212418581.png)
+  ![image](https://user-images.githubusercontent.com/18898570/139565729-10e1d7ad-08c8-4ed7-916d-52c6ebda7efd.png)
 
 ```sh
-sed '3i lisi996' test.txt ##在第三行的前面加上内容
+sed '3i lisi996' test.txt ##在第三行的前一行加上内容
 ```
 
-![image-20211005212534990](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211005212534990.png)
+![image](https://user-images.githubusercontent.com/18898570/139565737-f0af444e-3852-4f16-9df9-ba6a9deef4cc.png)
 
 **替换** s
 
@@ -279,7 +278,7 @@ sed '3i lisi996' test.txt ##在第三行的前面加上内容
 echo 123546 | sed -r 's#(.*)#</1>#g' #括号是把前面123456给当成一个整体，\1表示第一个整体，注意是反斜杠，需要加-r，因为小括号是扩展正则
 ```
 
-![image-20211006111148982](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211006111148982.png)
+![image](https://user-images.githubusercontent.com/18898570/139565747-bb70e4f1-b774-4ed5-b0f6-c3aceb8e5a3b.png)
 
 ```sh
 echo zhangsan_lisi | sed -r 's#(^.*)_(.*$)#\2_\1#g' #把两个名字调换，(^.*)表示下划线前的名字，(.*$)表示下划线后面的名字，\2表示第二组,\1表示第一组
@@ -292,7 +291,7 @@ ip a s eth0 | sed -n '3p' | sed -r 's#^.*t (.*)/.*#\1#g'  #获取ip地址，^.*t
 ip a s eth0 | sed -rn '3s#^.*t (.*)/.*#\1#gp'
 ```
 
-![image-20211006112750761](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211006112750761.png)
+![image](https://user-images.githubusercontent.com/18898570/139565752-df3a7e6c-20c3-4684-9ee4-a76c8a5fb970.png)
 
 
 
@@ -348,13 +347,13 @@ awk 'NR>=1 && NR<=5' test.txt
 head -3 /etc/passwd | awk -F: '{print $1,$NF}' |column -t #-F: 表示用：作为分隔符；$1,$NF:第一列和最后一列；column -t显示的好看一点
 ```
 
-![image-20211006171510621](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211006171510621.png)
+![image](https://user-images.githubusercontent.com/18898570/139565762-d19d8dfb-5c39-4d38-ba50-c04b4c76c476.png)
 
 ```sh
 head -3 /etc/passwd | awk -F: '{print $1"@@"$NF}' |column -t #中间用@@分割
 ```
 
-![image-20211006171716895](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211006171716895.png)
+![image](https://user-images.githubusercontent.com/18898570/139565768-04d23928-9284-480b-983b-d2890735a311.png)
 
 
 
@@ -364,7 +363,7 @@ head -3 /etc/passwd | awk -F: '{print $1"@@"$NF}' |column -t #中间用@@分割
  ip a s eth0 | awk -F"[ /]+" 'NR==3{print $3}' #“[ /]+” 是以空格和/进行分割，对于第三行进行分隔，取分隔后的第三列
 ```
 
-![image-20211007104604423](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211007104604423.png)
+![image](https://user-images.githubusercontent.com/18898570/139565773-e5a90404-7ba0-4b03-8563-7a084dd6e9aa.png)
 
 ###### awk 的模式匹配
 
@@ -399,7 +398,7 @@ head -3 /etc/passwd | awk -F: '{print $1"@@"$NF}' |column -t #中间用@@分割
 head -5 /etc/passwd | awk -F: '$3~/^1/{print $1,$3,$NF}'
 ```
 
-![image-20211007111746785](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211007111746785.png)
+![image](https://user-images.githubusercontent.com/18898570/139565780-9928204d-a572-4a8d-a2f8-6928bfc95c1c.png)
 
 找出etc/passwd里第3列以1或者2开头的行，并显示第一列、第三列和最后一列
 
@@ -407,7 +406,7 @@ head -5 /etc/passwd | awk -F: '$3~/^1/{print $1,$3,$NF}'
 head -5 /etc/passwd | awk -F: '$3~/^[12]/{print $1,$3,$NF}'
 ```
 
-![image-20211007111941991](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211007111941991.png)
+![image](https://user-images.githubusercontent.com/18898570/139565781-b136ea19-d08c-4fcf-bc98-f52b3735ecdc.png)
 
 3） 表示范围
 
@@ -437,7 +436,7 @@ head -5 /etc/passwd | awk -F: '$3~/^[12]/{print $1,$3,$NF}'
    awk '/^$/{i++}END{print i}' /etc/services # /^$/ 表示空行；{i++}统计 END{...} 将变量打印
   ```
 
-  ![image-20211007114259143](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211007114259143.png)
+![image](https://user-images.githubusercontent.com/18898570/139565783-6271f2f5-3cd9-465e-88cc-b5ee4ecaf463.png)
 
   从1+到100
 
@@ -447,9 +446,9 @@ head -5 /etc/passwd | awk -F: '$3~/^[12]/{print $1,$3,$NF}'
   seq 100 | awk '{sum+=$0;print sum}END{print sum}'
   ```
 
-  ![image-20211007114634357](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211007114634357.png)
+  ![image](https://user-images.githubusercontent.com/18898570/139565786-b61f7562-56db-4a6f-b000-c7a3926232c2.png)
 
-  ![image-20211007114757166](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211007114757166.png)
+  ![image](https://user-images.githubusercontent.com/18898570/139565789-2d932163-b05e-4739-8fc3-e296293b2d0c.png)
 
 ###### awk数组 
 
@@ -469,14 +468,13 @@ head -5 /etc/passwd | awk -F: '$3~/^[12]/{print $1,$3,$NF}'
  awk 'BEGIN{a[0]=123;a[1]="lidao";print a[0],a[1]} ' #注意都写在BEGIN{}内部,字符串需要加双引号进行判断
 ```
 
-![image-20211007172552047](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211007172552047.png)
-
+![image](https://user-images.githubusercontent.com/18898570/139565799-9e1a8536-7488-4081-8967-3ceb011f4782.png)
 ```sh
 awk 'BEGIN{a[0]=123;a[1]="lidao";for (i in a) print i} ' #打印的是下标
  awk 'BEGIN{a[0]=123;a[1]="lidao";for (i in a) print a[i]} ' #打印的是数组内容
 ```
 
-![image-20211007173919509](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211007173919509.png)
+![image](https://user-images.githubusercontent.com/18898570/139565803-7aa69f7b-f936-492d-8763-3b0dbc30d52a.png)
 
 ###### for循环
 
@@ -495,7 +493,7 @@ sum+=i;
 print sum}' #注意sum+=i后面是有个分号
 ```
 
-![image-20211017102244481](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211017102244481.png)
+![image](https://user-images.githubusercontent.com/18898570/139565810-8991a98c-86a5-4043-8a97-e672b50542bb.png)
 
 ###### if判断
 
@@ -508,8 +506,7 @@ print sum}' #注意sum+=i后面是有个分号
 df -h | awk -F "[ %]+" 'NR>1{if($5>=50) print "disk not enough"} ' #按分隔符分割后，磁盘空间大于50的打印出来，需要将第一行去掉，所以加上NR>1
 ```
 
-![image-20211017105257463](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211017105257463.png)
-
+![image](https://user-images.githubusercontent.com/18898570/139565815-3a8df2d9-0382-4ebf-a8e3-9d129bca7107.png)
 ```sh
 #统计这段语句中，字符数小于6的单词
 echo i am oldboy teacher welcome to oldboy training class
@@ -521,6 +518,6 @@ echo i am oldboy teacher welcome to oldboy training class | awk '{for(i=1;i<=NF;
 
 ```
 
- ![image-20211017105705026](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211017105705026.png)
+![image](https://user-images.githubusercontent.com/18898570/139565820-9b4db58b-fd27-4580-9ecd-3492337badce.png)
 
-![image-20211017105845284](C:\Users\15929\AppData\Roaming\Typora\typora-user-images\image-20211017105845284.png)
+![image](https://user-images.githubusercontent.com/18898570/139565828-cee68587-b0de-41c7-9655-abf5f25521e9.png)
